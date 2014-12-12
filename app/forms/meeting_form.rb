@@ -10,8 +10,18 @@ module Form
     attribute :venue, Venue
     attribute :organiser, User
 
-    def save!
-      Meeting.save!()
+
+    def valid?
+      super && venue.valid? && organiser.valid?
+    end
+
+    def save
+      begin
+        Meeting::Save.new(self).run!
+        true
+      rescue ValidationError
+        false
+      end
     end
 
 

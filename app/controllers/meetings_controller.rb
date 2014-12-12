@@ -9,7 +9,7 @@ class MeetingsController < ApplicationController
 
     form = Form::Meeting.new(meeting_params)
 
-    if meeting.save!
+    if meeting.save
       flash[:success] = 'Meeting is created'
       render :index
     else
