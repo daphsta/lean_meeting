@@ -1,0 +1,15 @@
+.row
+	.large-block-grid-5
+		.small-block-grid-4
+    %table
+      %thead
+        %tr
+          %th Dates
+          %th Meetings
+          %th Title
+          %th Description
+          %th Organiser
+          %th Venue
+        - @meetings.each do |meeting|
+          %tr
+            %td meeting.title

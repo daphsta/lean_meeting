@@ -1,0 +1,31 @@
+---
+base: &base
+  adapter: mysql2
+  encoding: utf8
+  pool: 10
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *base
+  host: 127.0.0.1
+  database: lean-meeting_development
+  username: root
+  password: vagrant
+
+test:
+#  adapter: sqlite3
+#  database: db/test.sqlite3
+#  pool: 5
+#  timeout: 5000
+  <<: *base
+  host: 127.0.0.1
+  database: lean-meeting_test
+  username: root
+  password: vagrant
+
+production:
+  <<: *base
+  host: 10.150.3.215
+  database: lean-meeting_production
+  username: billings
+  password: jeJu4wab
